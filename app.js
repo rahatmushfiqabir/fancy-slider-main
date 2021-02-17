@@ -19,6 +19,7 @@ const showImages = (images) => {
   gallery.innerHTML = '';
   // show gallery title
   galleryHeader.style.display = 'flex';
+  countImage();
   images.forEach(image => {
     let div = document.createElement('div');
     div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
@@ -26,7 +27,7 @@ const showImages = (images) => {
     gallery.appendChild(div)
   })
   toggleSpinner();
-  document.getElementById("search").value = "";   // empty the searchbar after showing result
+  document.getElementById("search").value = "";  // empty the searchbar after showing result
 
 }
 
@@ -140,6 +141,7 @@ const toggleSpinner = () => {              // Adding Spinner
 document.getElementById('search').addEventListener('keyup', event => {
   //console.log("hello");
   if (event.key === 'Enter') document.getElementById('search-btn').click();
+  document.getElementById("imgCount").value = "";
 });
 
 const countImage = () => {       // count selected image
